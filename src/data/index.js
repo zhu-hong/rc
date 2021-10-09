@@ -1,4 +1,4 @@
-import { reactive, computed } from "@vue/reactivity";
+import { reactive, computed, ref } from "@vue/reactivity";
 
 // 总名单
 const list = reactive([
@@ -64,8 +64,12 @@ const statusInfo = [
   }
 ]
 
+// 控制名字面板的显示隐藏
+const isRoll = ref(false);
+
 export {
   list,
   pendings,
-  statusInfo
+  statusInfo,
+  isRoll
 }
