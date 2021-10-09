@@ -1,5 +1,6 @@
 <script setup>
 import { statusInfo } from '../../data'
+import { changeStatus } from '../../utils'
 defineProps({
   member: Object
 })
@@ -15,6 +16,7 @@ defineProps({
     <template v-for="status in statusInfo">
       <button
         :class="['font-semibold rounded-none', status.color]"
+        @click="changeStatus(member.id, status.status)"
       >
         {{ status.text }}
       </button>
