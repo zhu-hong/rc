@@ -70,9 +70,32 @@ const statusInfo = [
 // 控制名字面板的显示隐藏
 const isRoll = ref(false);
 
+// 分组数据
+const statusGroup = reactive([
+  {
+    members: computed(() => list.filter(item => item.status === 'arrive')),
+    title: '到位 ✨',
+    color: 'bg-blue-600',
+    id: 43
+  },
+  {
+    members: computed(() => list.filter(item => item.status === 'leave')),
+    title: '请假 🤕',
+    color: 'bg-yellow-600',
+    id: 44
+  },
+  {
+    members: computed(() => list.filter(item => item.status === 'absent')),
+    title: '旷训 🥅',
+    color: 'bg-red-600',
+    id: 45
+  }
+])
+
 export {
   list,
   pendings,
   statusInfo,
-  isRoll
+  isRoll,
+  statusGroup
 }
