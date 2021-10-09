@@ -13,7 +13,7 @@ defineProps({
     >
       {{ member.name }}
     </span>
-    <template v-for="status in statusInfo">
+    <template v-for="status in statusInfo" :key="status.id">
       <button
         :class="['font-semibold rounded-none', status.color]"
         @click="changeStatus(member.id, status.status)"

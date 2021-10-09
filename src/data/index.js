@@ -50,17 +50,20 @@ const statusInfo = [
   {
     status: 'arrive',
     text: '到位',
-    color: 'bg-blue-600'
+    color: 'bg-blue-600',
+    id: 40
   },
   {
     status: 'leave',
     text: '请假',
-    color: 'bg-yellow-600'
+    color: 'bg-yellow-600',
+    id: 41
   },
   {
     status: 'absent',
     text: '旷训',
-    color: 'bg-red-600'
+    color: 'bg-red-600',
+    id: 42
   }
 ]
 
