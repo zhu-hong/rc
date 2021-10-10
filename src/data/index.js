@@ -1,9 +1,10 @@
 import { reactive, computed, ref } from "@vue/reactivity";
-import { catchStatus } from "../utils";
+import { catchStatus, getShortName } from "../utils";
 
 // 总名单
 const list =
-  reactive(JSON.parse(localStorage.getItem('cache'))) ||
+  JSON.parse(localStorage.getItem('cache')) ?
+  reactive(JSON.parse(localStorage.getItem('cache'))) :
   reactive([
     { name: '赖志文', id: 0, status: 'pending' },
     { name: '钟泽锋', id: 1, status: 'pending' },
@@ -51,7 +52,7 @@ list.forEach(item => {
   item.status = catchStatus(item.status, list);
 })
 
-const pendings = computed(() => list.filter(item => item.status === 'pending'))
+const pendings = computed(() => list.filter(item => item.status === 'pending' && (item.name.includes(keyword.value) || getShortName(item.name).startsWith(keyword.value.toLowerCase()))))
 
 const statusInfo = [
   {
@@ -99,10 +100,14 @@ const statusGroup = reactive([
   }
 ])
 
+// 搜索关键字
+const keyword = ref('');
+
 export {
   list,
   pendings,
   statusInfo,
   isRoll,
-  statusGroup
+  statusGroup,
+  keyword,
 }
