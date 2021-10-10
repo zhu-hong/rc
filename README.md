@@ -1,5 +1,7 @@
 # Roll-Call(点名)
 
+[✔️已完成,点击预览](https://rc-zh.vercel.app/)
+
 ## 缘起
 
 QQ群名单点名太麻烦了,写个点名网页吧
@@ -35,8 +37,6 @@ QQ群名单点名太麻烦了,写个点名网页吧
 + 重新开始功能
   + 点完名后一键重开
   + 由于名单较长重开后还要自动返回顶部
-+ 存图功能
-  + 生成名单图片便于分享[dom-to-image-more - npm (npmjs.com)](https://www.npmjs.com/package/dom-to-image-more)
 
 ## 技术选型
 
