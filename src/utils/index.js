@@ -1,4 +1,4 @@
-import { list } from '../data'
+import { isRoll, keyword, list } from '../data'
 import { customRef } from '@vue/reactivity'
 import { convertToPinyin } from 'tiny-pinyin';
 
@@ -20,7 +20,6 @@ const catchStatus = (value, cache) => {
       }
     }
   })
-  
 }
 
 const getShortName = name => {
@@ -29,8 +28,38 @@ const getShortName = name => {
   return shortName;
 }
 
+const smoothToTop = () => {
+  let scrollTop = document.documentElement.scrollTop;
+  const up = () => {
+    let distance = 0 - scrollTop;
+    scrollTop = scrollTop + distance / 5;
+    if (Math.abs(distance) < 1) {
+      scrollTo(0, 0);
+    } else {
+      scrollTo(0, scrollTop);
+      requestAnimationFrame(up);
+    }
+  };
+  up();
+};
+
+const setValue = (key, value) => { key.value = value }
+
+const reset = () => {
+  smoothToTop();
+  keyword.value && setValue(keyword, '')
+  isRoll.value && setValue(isRoll, false)
+  if (localStorage.getItem('cache')) {
+    list.forEach(item => {
+      item.status = 'pending';
+    })
+    localStorage.clear();
+  }
+}
+
 export {
   changeStatus,
   catchStatus,
   getShortName,
+  reset
 }
