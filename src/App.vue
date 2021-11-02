@@ -16,12 +16,3 @@ import ResetButton from './components/ResetButton/index.vue';
     <reset-button>重开</reset-button>
   </main>
 </template>
-
-<style>
-* {
-  user-select: none;
-}
-::-webkit-scrollbar {
-  display: none;
-}
-</style>
