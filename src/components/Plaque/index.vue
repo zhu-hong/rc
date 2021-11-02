@@ -20,7 +20,7 @@ defineProps({
       <div class="relative w-full h-100 overflow-hidden">
         <virtual-scroll
           :totalData="pendings"
-          :itemHeight="45" 
+          :itemHeight="48" 
           v-slot:default="slotProps"
         >
           <item :member="slotProps.item"></item>
