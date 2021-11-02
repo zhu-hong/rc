@@ -22,10 +22,7 @@ import { keyword } from '../../data';
 </template>
 
 <style>
-.x-enter-active {
-  transition: all 0.2s linear;
-}
-
+.x-enter-active,
 .x-leave-active {
   transition: all 0.2s linear;
 }
