@@ -17,10 +17,10 @@ defineProps({
         {{ pendings.length }}
       </small>
     </section>
-      <div class="relative w-full h-100 overflow-hidden">
+      <div class="relative w-full h-110 overflow-hidden">
         <virtual-scroll
           :totalData="pendings"
-          :itemHeight="48" 
+          :itemHeight="48"
           v-slot:default="slotProps"
         >
           <item :member="slotProps.item"></item>

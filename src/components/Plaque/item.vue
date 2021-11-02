@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="w-full h-10 mb-2 grid grid-cols-5 rounded-lg overflow-hidden">
+  <div class="w-full h-10 mb-2 grid grid-cols-5 rounded-lg overflow-hidden text-black">
     <span
       class="grid place-items-center col-span-2 bg-green-400 text-lg font-bold"
     >
