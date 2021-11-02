@@ -1,5 +1,5 @@
 <script setup>
-import { keyword } from '../../data'
+import { keyword } from '../../data';
 </script>
 
 <template>
