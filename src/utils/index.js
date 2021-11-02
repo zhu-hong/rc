@@ -1,4 +1,4 @@
-import { isRoll, keyword, list } from '../data'
+import { keyword, list } from '../data'
 import { customRef } from '@vue/reactivity'
 import { convertToPinyin } from 'tiny-pinyin';
 
@@ -48,7 +48,6 @@ const setValue = (key, value) => { key.value = value }
 const reset = () => {
   smoothToTop();
   keyword.value && setValue(keyword, '')
-  isRoll.value && setValue(isRoll, false)
   if (localStorage.getItem('cache')) {
     list.forEach(item => {
       item.status = 'pending';

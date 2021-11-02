@@ -75,9 +75,6 @@ const statusInfo = [
   }
 ]
 
-// 控制名字面板的显示隐藏
-const isRoll = ref(false);
-
 // 分组数据
 const statusGroup = reactive([
   {
@@ -107,7 +104,6 @@ export {
   list,
   pendings,
   statusInfo,
-  isRoll,
   statusGroup,
   keyword,
 }
