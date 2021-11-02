@@ -9,11 +9,11 @@ const changeStatus = (id, status) => {
 const catchStatus = (value, cache) => {
   return customRef((track, trigger) => {
     return {
-      get(){
+      get() {
         track();
         return value;
       },
-      set(newVal){
+      set(newVal) {
         value = newVal;
         trigger();
         localStorage.setItem('cache', JSON.stringify(cache));
@@ -56,9 +56,31 @@ const reset = () => {
   }
 }
 
+function throttle(fn, delay) {
+  let [timer, bigin] = [null, new Date().getTime()];
+
+  return function () {
+    let [__this, args, current] = [this, arguments, new Date().getTime()];
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    if (current - bigin >= delay) {
+      requestAnimationFrame(fn.apply(__this, args));
+      bigin = current;
+    } else {
+      timer = setTimeout(() => {
+        requestAnimationFrame(fn.apply(__this, args));
+      }, current - delay);
+    }
+  }
+}
+
 export {
   changeStatus,
   catchStatus,
   getShortName,
   reset,
+  throttle,
 }

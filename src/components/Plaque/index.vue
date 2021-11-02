@@ -17,10 +17,14 @@ defineProps({
         {{ pendings.length }}
       </small>
     </section>
-      <div class="w-full grid gap-4 origin-top">
-        <template v-for="member in pendings" :key="member.id">
-          <item :member="member"></item>
-        </template>
+      <div class="relative w-full h-100 overflow-hidden">
+        <virtual-scroll
+          :totalData="pendings"
+          :itemHeight="45" 
+          v-slot:default="slotProps"
+        >
+          <item :member="slotProps.item"></item>
+        </virtual-scroll>
       </div>
   </div>
 </template>
