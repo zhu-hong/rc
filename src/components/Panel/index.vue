@@ -1,7 +1,7 @@
 <script setup>
-import { changeStatus } from '../../utils'
+import { changeStatus } from '../../utils';
 defineProps({
-  group: Object
+  group: Object,
 })
 </script>
 

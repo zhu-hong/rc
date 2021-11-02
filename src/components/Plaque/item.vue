@@ -1,8 +1,8 @@
 <script setup>
-import { statusInfo } from '../../data'
-import { changeStatus } from '../../utils'
+import { statusInfo } from '../../data';
+import { changeStatus } from '../../utils';
 defineProps({
-  member: Object
+  member: Object,
 })
 </script>
 

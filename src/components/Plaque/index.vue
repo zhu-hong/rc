@@ -1,7 +1,7 @@
 <script setup>
 import Item from './item.vue';
 defineProps({
-  pendings: Array
+  pendings: Array,
 })
 </script>
 

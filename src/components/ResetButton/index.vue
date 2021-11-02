@@ -1,5 +1,5 @@
 <script setup>
-import { reset } from '../../utils'
+import { reset } from '../../utils';
 </script>
 
 <template>

@@ -52,26 +52,26 @@ list.forEach(item => {
   item.status = catchStatus(item.status, list);
 })
 
-const pendings = computed(() => list.filter(item => item.status === 'pending' && (item.name.includes(keyword.value) || getShortName(item.name).startsWith(keyword.value.toLowerCase()))))
+const pendings = computed(() => list.filter(item => item.status === 'pending' && (item.name.includes(keyword.value) || getShortName(item.name).startsWith(keyword.value.toLowerCase()))));
 
 const statusInfo = [
   {
     status: 'arrive',
     text: '到位',
     color: 'bg-blue-600',
-    id: 40
+    id: 40,
   },
   {
     status: 'leave',
     text: '请假',
     color: 'bg-yellow-600',
-    id: 41
+    id: 41,
   },
   {
     status: 'absent',
     text: '旷训',
     color: 'bg-red-600',
-    id: 42
+    id: 42,
   }
 ]
 
@@ -81,19 +81,19 @@ const statusGroup = reactive([
     members: computed(() => list.filter(item => item.status === 'arrive')),
     title: '到位 ✨',
     color: 'bg-blue-600',
-    id: 43
+    id: 43,
   },
   {
     members: computed(() => list.filter(item => item.status === 'leave')),
     title: '请假 🤕',
     color: 'bg-yellow-600',
-    id: 44
+    id: 44,
   },
   {
     members: computed(() => list.filter(item => item.status === 'absent')),
     title: '旷训 🥅',
     color: 'bg-red-600',
-    id: 45
+    id: 45,
   }
 ])
 

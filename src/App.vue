@@ -1,6 +1,6 @@
 <script setup>
-import { pendings, statusGroup } from './data'
-import Plaque from './components/Plaque/index.vue'
+import { pendings, statusGroup } from './data';
+import Plaque from './components/Plaque/index.vue';
 import Panel from './components/Panel/index.vue';
 import FilterInput from './components/FilterInput/index.vue';
 import ResetButton from './components/ResetButton/index.vue';

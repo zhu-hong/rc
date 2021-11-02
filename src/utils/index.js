@@ -1,5 +1,5 @@
-import { keyword, list } from '../data'
-import { customRef } from '@vue/reactivity'
+import { keyword, list } from '../data';
+import { customRef } from '@vue/reactivity';
 import { convertToPinyin } from 'tiny-pinyin';
 
 const changeStatus = (id, status) => {
@@ -24,7 +24,7 @@ const catchStatus = (value, cache) => {
 
 const getShortName = name => {
   let shortName = '';
-  convertToPinyin(name, '-', true).split('-').forEach(item => shortName += item[0])
+  convertToPinyin(name, '-', true).split('-').forEach(item => shortName += item[0]);
   return shortName;
 }
 
@@ -60,5 +60,5 @@ export {
   changeStatus,
   catchStatus,
   getShortName,
-  reset
+  reset,
 }
