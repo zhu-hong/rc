@@ -1,7 +1,6 @@
 <script>
 import { computed, ref } from '@vue/reactivity';
 import { nextTick } from '@vue/runtime-core';
-import { throttle } from '../../utils';
 
 export default {
   name: 'virtual-scroll',
@@ -26,7 +25,7 @@ const endIndex = computed(() => startIndex.value + containSize.value > props.tot
 const renderData = computed(() => props.totalData.slice(startIndex.value, endIndex.value));
 const fillPadding = computed(() => {
   return {
-    padding: `${startIndex.value * props.itemHeight}px 0 ${(props.totalData.length - 1 - endIndex.value) * props.itemHeight}px 0`,
+    padding: `${startIndex.value * props.itemHeight}px 0 ${(props.totalData.length - endIndex.value) * props.itemHeight}px 0`,
   }
 })
 
@@ -40,7 +39,7 @@ const handleScroll = (e) => {
 </script>
 
 <template>
-  <div ref="container" :class="$style.container" @scroll.passive="throttle(handleScroll($event))">
+  <div ref="container" :class="$style.container" @scroll.passive="handleScroll($event)">
     <div :style="fillPadding">
       <template v-for="item of renderData">
         <slot :item="item"></slot>
