@@ -45,7 +45,7 @@ const list =
     { name: '任致澎', id: 36, status: 'pending' },
     { name: '张林祯', id: 37, status: 'pending' },
     { name: '何国玺', id: 38, status: 'pending' },
-    { name: '吴佳', id: 39, status: 'pending' }
+    { name: '吴佳', id: 39, status: 'pending' },
   ]);
 
 list.forEach(item => {
