@@ -2,15 +2,5 @@
   user-select: none;
 }
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-}
-::-webkit-scrollbar-track {
-  background: #444;
-}
-::-webkit-scrollbar-thumb {
-  background: #222222;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #111;
+  display: none;
 }
