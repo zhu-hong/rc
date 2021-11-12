@@ -1,5 +1,6 @@
 <script setup>
 import { computed, reactive, shallowRef } from '@vue/reactivity';
+import { watch } from '@vue/runtime-core';
 
 import Plaque from './components/Plaque/index.vue';
 import Panel from './components/Panel/index.vue';
@@ -8,7 +9,6 @@ import ResetButton from './components/ResetButton/index.vue';
 
 import { TYPES, list } from './data';
 import { getShortName, smoothToTop } from './utils';
-import { watch } from '@vue/runtime-core';
 
 const members = reactive(JSON.parse(localStorage.getItem('members')) || list);
 const keyword = shallowRef('');
