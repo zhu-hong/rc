@@ -2,6 +2,8 @@
 import Item from './item.vue';
 defineProps({
   pendings: Array,
+  statuses: Array,
+  setStatus: Function,
 })
 </script>
 
@@ -23,7 +25,11 @@ defineProps({
           :itemHeight="48"
           v-slot:default="slotProps"
         >
-          <item :member="slotProps.item"></item>
+          <Item 
+            :member="slotProps.item" 
+            :statuses="statuses"
+            :setStatus="setStatus"
+          />
         </virtual-scroll>
       </div>
   </div>

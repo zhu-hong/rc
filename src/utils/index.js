@@ -1,26 +1,4 @@
-import { keyword, list } from '../data';
-import { customRef } from '@vue/reactivity';
 import { convertToPinyin } from 'tiny-pinyin';
-
-const changeStatus = (id, status) => {
-  list.find(item => item.id === id).status = status;
-}
-
-const catchStatus = (value, cache) => {
-  return customRef((track, trigger) => {
-    return {
-      get() {
-        track();
-        return value;
-      },
-      set(newVal) {
-        value = newVal;
-        trigger();
-        localStorage.setItem('cache', JSON.stringify(cache));
-      }
-    }
-  })
-}
 
 const getShortName = name => {
   let shortName = '';
@@ -43,22 +21,7 @@ const smoothToTop = () => {
   up();
 };
 
-const setValue = (key, value) => { key.value = value }
-
-const reset = () => {
-  smoothToTop();
-  keyword.value && setValue(keyword, '')
-  if (localStorage.getItem('cache')) {
-    list.forEach(item => {
-      item.status = 'pending';
-    })
-    localStorage.clear();
-  }
-}
-
 export {
-  changeStatus,
-  catchStatus,
   getShortName,
-  reset,
+  smoothToTop,
 }

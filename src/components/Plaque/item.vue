@@ -1,8 +1,8 @@
 <script setup>
-import { statusInfo } from '../../data';
-import { changeStatus } from '../../utils';
 defineProps({
   member: Object,
+  statuses: Array,
+  setStatus: Function,
 })
 </script>
 
@@ -13,10 +13,10 @@ defineProps({
     >
       {{ member.name }}
     </span>
-    <template v-for="status in statusInfo" :key="status.id">
+    <template v-for="status in statuses">
       <button
         :class="['font-semibold rounded-none', status.color]"
-        @click="changeStatus(member.id, status.status)"
+        @click="setStatus(member.id, status.status)"
       >
         {{ status.text }}
       </button>

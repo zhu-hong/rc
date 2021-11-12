@@ -1,7 +1,7 @@
 <script setup>
-import { changeStatus } from '../../utils';
 defineProps({
   group: Object,
+  setStatus: Function,
 })
 </script>
 
@@ -14,11 +14,13 @@ defineProps({
       >{{ group.members.length }}</small>
     </section>
     <div class="grid grid-cols-4">
-      <template v-for="member in group.members" :key="member.id">
+      <template v-for="member in group.members">
         <span
           :class="['grid place-items-center p-1 text-lg font-bold border-r border-b border-black', group.color]"
-          @click="changeStatus(member.id, 'pending')"
-        >{{ member.name }}</span>
+          @click="setStatus(member.id, 'pending')"
+        >
+          {{ member.name }}
+        </span>
       </template>
     </div>
   </div>

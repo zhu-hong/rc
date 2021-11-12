@@ -1,5 +1,7 @@
 <script setup>
-import { keyword } from '../../data';
+defineProps({
+  keyword: String,
+})
 </script>
 
 <template>
@@ -7,13 +9,14 @@ import { keyword } from '../../data';
     <input
       class="w-full p-3 pr-12 bg-gray-900 text-white font-bold rounded-lg outline-none transition focus:ring-2 focus:ring-purple-600 focus:border-transparent"
       v-model="keyword"
+      @input="$emit('update:keyword', keyword)"
       autofocus
     />
     <transition name="x">
       <span
         class="absolute right-3 top-2 text-white text-2xl grid place-items-center"
         v-show="keyword.length"
-        @click="keyword = ''"
+        @click="$emit('update:keyword', '')"
       >
         ❌
       </span>
@@ -29,6 +32,6 @@ import { keyword } from '../../data';
 
 .x-enter-from,
 .x-leave-to {
-  transform: scale(0);
+  transform: translateX(100%) scale(0);
 }
 </style>
