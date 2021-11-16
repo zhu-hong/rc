@@ -18,9 +18,9 @@ const key = shallowRef('');
     />
     <transition name="x">
       <span
-        class="absolute right-3 top-2 text-white text-2xl grid place-items-center"
+        class="absolute right-3 top-2 text-white text-2xl grid place-items-center cursor-pointer"
         v-show="keyword.length"
-        @click="$emit('update:keyword', '')"
+        @click="() => { $emit('update:keyword', ''); key = ''; }"
       >
         ❌
       </span>
